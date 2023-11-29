@@ -1,0 +1,25 @@
+{
+  "Users": [
+    {
+      "firstName" : "Kayla",
+      "userName" : "kbg",
+      "password" : "password123",
+      "shippingAddress" : "Marietta, GA",
+      "admin" : true,
+      "ID" : 1
+    }
+  ],
+  "Inventory": [
+    {
+      "name": "big gun keychain",
+      "price": 27.99,
+      "inventoryId": 19
+    }
+  ],
+  "Sales": [
+    {
+      "userId": 1,
+      "inventoryId": 19
+    }
+  ]
+}
