@@ -11,6 +11,6 @@ public class ApplicationData {
     public ArrayList<Inventory> inventory;
     @JsonProperty("Sales")
     public ArrayList<Sale> sales;
-    @JsonProperty("ShippingType")
+    @JsonProperty("ShippingTypes")
     public ArrayList<ShippingType> shippingTypes;
 }
