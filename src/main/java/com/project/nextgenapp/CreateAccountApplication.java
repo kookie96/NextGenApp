@@ -9,14 +9,13 @@ import javafx.stage.Stage;
 public class CreateAccountApplication extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateAccount.fxml"));
-        Parent root = loader.load();
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-        primaryStage.setTitle("Create Account");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource(
+                "CreateAccount.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+        stage.setTitle("Create Account");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {

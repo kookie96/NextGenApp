@@ -2,6 +2,7 @@ package com.project.nextgenapp;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,43 +13,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class SignInApplication extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("SignIn" +
+                ".fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+        stage.setTitle("NextGen");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
-    @Override
-    public void start(Stage primaryStage) {
-        // Username label
-        Label usernameLabel = new Label("Username:");
-
-        // Username text field
-        TextField usernameTextField = new TextField();
-
-        // Password label
-        Label passwordLabel = new Label("Password:");
-
-        // Password field
-        PasswordField passwordField = new PasswordField();
-
-        // Login button
-        Button loginButton = new Button("Login");
-
-        // Sign Up button
-        Button signUpButton = new Button("Sign Up");
-
-        // Set up the layout
-        VBox vbox = new VBox(10);
-        vbox.setPadding(new Insets(20));
-        vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(usernameLabel, usernameTextField, passwordLabel, passwordField, loginButton, signUpButton);
-
-        // Create a scene and add it to the stage
-        Scene scene = new Scene(vbox, 300, 250);
-        primaryStage.setTitle("Login Interface");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-   }
+}

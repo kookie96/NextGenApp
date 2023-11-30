@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.nextgenapp.SignInController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.nextgenapp.SignInController">
     <children>
-        <Label layoutX="134.0" layoutY="112.0" textFill="#8ced24">
+        <Label layoutX="279.0" layoutY="131.0" textFill="#8ced24">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField id="firstName" fx:id="firstName" layoutX="531.0" layoutY="80.0" prefHeight="26.0" prefWidth="0.0" />
-        <Label layoutX="137.0" layoutY="151.0" text="Username" textFill="#8ced24">
+        <Label layoutX="282.0" layoutY="170.0" text="Username" textFill="#8ced24">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField id="username" fx:id="username" layoutX="231.0" layoutY="152.0" />
-        <Label layoutX="139.0" layoutY="192.0" text="Password" textFill="#8ced24">
+        <TextField id="username" fx:id="usernameTextField" layoutX="376.0" layoutY="171.0" />
+        <Label layoutX="284.0" layoutY="211.0" text="Password" textFill="#8ced24">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <PasswordField id="password" fx:id="password" layoutX="231.0" layoutY="193.0" />
-        <Button id="signUp" fx:id="signUpButton" layoutX="239.0" layoutY="298.0" mnemonicParsing="false" onAction="#onSignUpButtonClick" style="-fx-background-color: #8ced24;" text="Sign Up">
+        <Button id="signUp" fx:id="loginButton" layoutX="392.0" layoutY="319.0" mnemonicParsing="false" onAction="#onLoginButtonClick" style="-fx-background-color: #8ced24;" text="Login">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Hyperlink id="login" layoutX="161.0" layoutY="350.0" onAction="#onLoginButtonClick" style="-fx-background-color: black; -fx-font-style: #8ced24;" text="Don't have an Account? SIGN UP " textFill="#8ced24">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Hyperlink>
-        <Label layoutX="255.0" layoutY="80.0" text="Login" textFill="#8ced24">
+        <Label layoutX="400.0" layoutY="99.0" text="Login" textFill="#8ced24">
             <font>
                 <Font size="32.0" />
             </font>
         </Label>
+      <Label fx:id="warningLabel" alignment="TOP_LEFT" layoutX="276.0" layoutY="418.0" prefHeight="90.0" prefWidth="347.0" textFill="#eb2626" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField id="username" fx:id="passwordTextField" layoutX="376.0" layoutY="210.0" />
+      <Button id="signUp" fx:id="signUpButton" layoutX="302.0" layoutY="361.0" mnemonicParsing="false" onAction="#goToSignUpPage" style="-fx-background-color: black;" text="Don't have an Account? SIGN UP" textFill="#8ced24">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

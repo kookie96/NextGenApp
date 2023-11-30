@@ -1,72 +1,67 @@
 package com.project.nextgenapp;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CreateAccountController {
+
+    @FXML
+    private Label createAccountLabel;
 
     @FXML
     private TextField firstNameField;
 
     @FXML
-    private TextField usernameField;
+    private TextField usernameTextField;
 
     @FXML
-    private TextField passwordField;
+    private TextField passwordTextField;
 
     @FXML
-    private Button signupButton;
+    private Button signUpButton;
 
     @FXML
-    private Label loginLabel;
-    private boolean signUpSuccessful;
+    private Button loginButton;
 
-    public void initialize() {
-        signupButton.setOnAction(event -> {
-            String firstName = firstNameField.getText();
-            String username = usernameField.getText();
-            String password = passwordField.getText();
+    @FXML
+    protected void goToInventoryPage() throws IOException {
+        // Call getScene() on any node that isn't null. Any node could be chosen
+        // from this controller. Then, typecast window to stage
+        Stage stage = (Stage) createAccountLabel.getScene().getWindow();
 
-            // Validate user input
-            if (firstName.isEmpty()) {
-                showAlert("Please enter your first name");
-                return;
-            }
+        // Copy/paste start method in driver and change fxml file
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("inventory" +
+                "-list-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+        stage.setTitle("NextGen");
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    protected void goToLoginPage() throws IOException {
+        // Call getScene() on any node that isn't null. Any node could be chosen
+        // from this controller. Then, typecast window to stage
+        createAccountLabel.setText("Create Account");
+        Stage stage = (Stage) createAccountLabel.getScene().getWindow();
 
-            if (username.isEmpty()) {
-                showAlert("Please enter a username");
-                return;
-            }
-
-            if (password.isEmpty()) {
-                showAlert("Please enter a password");
-                return;
-            }
-
-            // TODO: Implement sign up logic here (e.g., create user account in database)
-
-            // If sign up is successful, clear fields and display success message
-            if (signUpSuccessful) {
-                firstNameField.clear();
-                usernameField.clear();
-                passwordField.clear();
-
-                showAlert("Sign up successful!");
-            } else {
-                showAlert("Sign up failed. Please try again");
-            }
-        });
+        // Copy/paste start method in driver and change fxml file
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("SignIn" +
+                ".fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+        stage.setTitle("NextGen");
+        stage.setScene(scene);
+        stage.show();
     }
 
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Sign Up");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
 }
 
 

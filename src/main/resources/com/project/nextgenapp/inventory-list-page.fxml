@@ -27,7 +27,7 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" layoutY="37.0" prefHeight="353.0" prefWidth="848.0" style="-fx-background-color: black;">
+            <TableView fx:id="tableView" layoutY="37.0" prefHeight="353.0" prefWidth="850.0" style="-fx-background-color: black;">
               <columns>
                 <TableColumn fx:id="itemPhoto" prefWidth="212.49713897705078" text="Photo" />
                 <TableColumn fx:id="itemName" prefWidth="203.99888610839844" text="Name" />
