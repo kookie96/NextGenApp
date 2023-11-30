@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="601.0" prefWidth="802.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane hgap="10" layoutX="52.0" layoutY="94.0" vgap="10" AnchorPane.rightAnchor="487.6">
+        <Label text="Address" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="City" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="cityField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Phone Number" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="phoneNumberField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Card Number" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="cardNumberField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="Expiration Month" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <ComboBox fx:id="expirationMonthField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <Label text="Name" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+        <Label text="Email" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+        <Label text="Zip Code" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <TextField fx:id="zipCodeField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+        <Label text="Security Code" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <TextField fx:id="securityCodeField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+        <Label text="State" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+        <TextField fx:id="stateField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+        <Label text="Expiration Year" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+        <TextField fx:id="expirationYearField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+        <Label text="Speed Options" textFill="#77d353" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+        <ComboBox fx:id="speedOptionsField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+        <Label fx:id="paymentInfoLabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints maxWidth="149.6" minWidth="149.6" prefWidth="149.6" />
+         <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints maxHeight="26.599999999999994" minHeight="24.599999999999994" prefHeight="26.599999999999994" />
+         <RowConstraints maxHeight="26.599999999999994" minHeight="0.0" prefHeight="20.80000000000001" />
+         <RowConstraints maxHeight="50.400000000000006" minHeight="25.599999999999994" prefHeight="29.599999999999994" />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+   <Label layoutX="330.0" layoutY="39.0" text="Payment Info" textFill="#77d353">
+      <font>
+         <Font size="24.0" />
+      </font></Label>
+     <Button layoutX="733.0" layoutY="13.0" onAction="#logoutButtonAction" text="Logout" textFill="#77d353" />
+
+     <Button layoutX="347.0" layoutY="539.0" onAction="#confirmOrderButtonAction" style="-fx-background-color: #77D353;" text="Confirm Order" />
+    <VBox alignment="center" layoutX="393.0" layoutY="74.0" prefHeight="400" prefWidth="400" spacing="10" xmlns:fx="http://javafx.com/fxml">
+        <Label prefHeight="35.0" prefWidth="244.0" style="-fx-background-color: #77D353;" text="   Standard Shipping: " textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+        <Label text="Free standard shipping " textFill="#77d353" />
+        <Label text="Overnight Shipping: $20.99" textFill="#77d353" />
+        <Label text="3-Day Shipping: $12.99" textFill="#77d353" />
+        <Label />
+    </VBox>
+    </AnchorPane>
