@@ -9,18 +9,12 @@ import javafx.stage.Stage;
 public class ShoppingCartApplication extends Application {
 
         @Override
-        public void start(Stage primaryStage) throws Exception {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Shopping_Cart.fxml"));
-            Parent root = loader.load();
-
-            // Set the title of the stage
-            primaryStage.setTitle("Shopping Cart");
-
-            // Set the scene of the stage
-            primaryStage.setScene(new Scene(root));
-
-            // Show the stage
-            primaryStage.show();
+        public void start(Stage stage) throws Exception {
+            FXMLLoader fxmlLoader = new FXMLLoader(SignInApplication.class.getResource("ShoppingCart-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 730,610 );
+            stage.setTitle("Cart Page");
+            stage.setScene(scene);
+            stage.show();
         }
 
         public static void main(String[] args) {
