@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="735.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="27.0" layoutY="27.0" prefHeight="35.0" prefWidth="95.0" text="Next Gen ︿" textFill="#5fff33">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Label>
+        <Line endX="620.0" layoutX="115.0" layoutY="62.0" startX="-115.0" stroke="WHITE" />
+        <Button layoutX="134.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: #8cff1a;" text="Home" />
+        <Button layoutX="202.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: #8cff1a;" text="Shopping Cart" />
+        <Button layoutX="314.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: #8cff1a;" text="Logout" />
+        <Label layoutX="307.0" layoutY="126.0" text="Thank you!" textFill="WHITE">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="170.0" layoutY="162.0" text="Your order was completed sucessfully!" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label layoutX="142.0" layoutY="178.0" prefHeight="60.0" prefWidth="453.0" text="Welcome to the future of style! With your purchase from Next-Gen," textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="5.0" layoutY="228.0" text="you're not just buying a product, you're embracing the Next-Gen lifestyle -  where innovation meets elegance!" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="152.0" layoutY="258.0" prefHeight="244.0" prefWidth="431.0" style="-fx-background-color: #8cff1a;">
+            <children>
+                <Label layoutX="21.0" layoutY="22.0" text="CONFIRMATION # : XXXX-XXXX" />
+                <Label layoutX="309.0" layoutY="22.0" text="SHIPPING INFO" />
+                <Line endX="76.5" layoutX="349.0" layoutY="48.0" startX="-73.5" />
+                <Label layoutX="308.0" layoutY="57.0" text="Mr Potato Head" />
+                <Label layoutX="248.0" layoutY="74.0" text="1234 Tator Tot Ln, Candyland, GA, USA" />
+                <Label layoutX="298.0" layoutY="131.0" text="PAYMENT METHOD" />
+                <Label layoutX="299.0" layoutY="148.0" text="CHASE...1234" />
+                <Label layoutX="299.0" layoutY="165.0" text="SUBTOTAL:   $00.00" />
+                <Label layoutX="299.0" layoutY="182.0" text="SUBTOTAL:   $00.00" />
+                <Label layoutX="299.0" layoutY="199.0" text="SUBTOTAL:   $00.00" />
+                <Label layoutX="299.0" layoutY="222.0" text="GRAND TOTAL:   $00.00" />
+                <Line endX="100.0" layoutX="350.0" layoutY="216.0" startX="-100.0" />
+                <Label layoutX="58.0" layoutY="49.0" text="ITEM 1 $00.00" />
+                <Label layoutX="58.0" layoutY="105.0" text="ITEM 2 $00.00" />
+                <Label layoutX="58.0" layoutY="165.0" text="ITEM 3 $00.00" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
+
