@@ -1,0 +1,77 @@
+{
+  "Users": [
+    {
+      "firstName" : "Kayla",
+      "userName" : "kbg",
+      "password" : "password123",
+      "shippingAddress" : "Marietta, GA",
+      "admin" : true,
+      "ID" : 1
+    }
+  ],
+  "Inventory": [
+    {
+      "inventoryID": 1,
+      "name": "Fortnite Black Classic T-Shirt",
+      "description": "Features bright design of iconic Fortnite elements with a soft feel",
+      "price": 17.99
+    },
+    {
+      "inventoryID": 2,
+      "name": "Funko Pop! Games: Fortnite - Peely",
+      "description": "Meet the Funko Pop! Games Fortnite Peely, an iconic in-game character",
+      "price": 6.99
+    },
+    {
+      "inventoryID": 3,
+      "name": "Call Of Duty: Ghost - Device Stand",
+      "description": "Level up your gaming setup with Ghost Warzone device stand",
+      "price": 14.99
+    },
+    {
+      "inventoryID": 4,
+      "name": "Funko Pop! Keychain: Fortnite - Dark Vanguard",
+      "description": "A multicolor keychain that features the unforgettable character, Dark Vanguard",
+      "price": 7.99
+    },
+    {
+      "inventoryID": 5,
+      "name": "Call of Duty Task Force 141 T-Shirt",
+      "description": "Show off your love for Task Force 142 with an exclusive style",
+      "price": 15.99
+    },
+    {
+      "inventoryID": 6,
+      "name": "Call of Duty Task Force 141 T-Shirt",
+      "description": "Show off your love for Task Force 142 with an exclusive style",
+      "price": 15.99
+    }
+  ],
+  "Sales": [
+    {
+      "userID" : 1,
+      "inventoryID": 4,
+      "shippingTypeID": 1,
+      "dateOfSale": "2023-11-29",
+      "tax" : 3.99,
+      "grandTotal": 40.81
+    }
+  ],
+  "ShippingTypes": [
+    {
+      "shippingTypeID": 1,
+      "name": "Standard Shipping",
+      "price": 0.00
+    },
+    {
+      "shippingTypeID": 2,
+      "name": "3-Day",
+      "price": 12.99
+    },
+    {
+      "shippingTypeID": 3,
+      "name": "Overnight Shipping",
+      "price": 20.99
+    }
+  ]
+}

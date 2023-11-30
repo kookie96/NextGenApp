@@ -15,6 +15,11 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
+        // TEST
+        DatabaseManager dm = new DatabaseManager();
+        ApplicationData data = dm.getDataContainer();
+        dm.test(data);
     }
 
     public static void main(String[] args) {
