@@ -480,6 +480,62 @@ public class Database {
         return present;
     }
 
+    private static void addShippingAddress(Users currentUser){
+        String userInfo = "IF EXISTS " +
+                "( SELECT 1 FROM GAME_ITEMS.dbo.Users WHERE Username = '" + currentUser.getUserName() + "' )\n" +
+                "BEGIN\n" +
+                "    SELECT UserID, FirstName, Username, ShippingAddress, isAdmin " +
+                "FROM GAME_ITEMS.dbo.Users\n" +
+                "    WHERE Username = '" + currentUser.getUserName() + "' " +
+                "END";
+
+        String addAddress = "UPDATE GAME_ITEMS.dbo.Users " +
+                "SET ShippingAddress = '" + currentUser.getShippingAddress() + "'" +
+                " WHERE UserID in (" + currentUser.getUniqueID() + ")";
+
+        Connection conn = null;
+        String dbURL = "jdbc:sqlserver://obie\\sqlexpress;portNumber=14337;" + "encrypt=true;"
+                + "trustServerCertificate=true;"
+                + "loginTimeout=30;";
+        String user = "sa";
+        String pass = "password";
+        try {
+            conn = DriverManager.getConnection(dbURL, user, pass); Statement stmt = conn.createStatement();
+            System.out.println("Connected");
+            if(stmt.execute(userInfo)){
+                stmt.executeUpdate(addAddress);
+                ResultSet rs = stmt.executeQuery(userInfo);
+                while(rs.next()){
+                    int id = rs.getInt("UserID");
+                    String firstName = rs.getString("FirstName");
+                    String username = rs.getString("Username");
+                    String shippingAddress = rs.getString("ShippingAddress");
+                    boolean isAdmin = rs.getBoolean("isAdmin");
+                    System.out.println("New ShippingAddress:");
+                    System.out.println("User ID: " + id + ", First Name: " + firstName + "," +
+                            " Username: " + username + ", Shipping Address: " + shippingAddress + "," +
+                            " Admin: " + isAdmin);
+                    System.out.println();
+                }
+            }
+            else {
+                System.out.println("Failed to add address");
+                System.out.println();
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     public static void showShipping(){
         String allShipping = "SELECT ShippingName, Price FROM GAME_ITEMS.dbo.ShippingType";
         Connection conn = null;
@@ -774,20 +830,21 @@ public class Database {
                         try{
                             System.out.print("""
                         Options:
-                        1) Show Inventory
-                        2) Search Inventory
-                        3) Add To Cart
-                        4) Show Cart
-                        5) Remove From Cart
-                        6) Buy/ Add to Sales
-                        7) Log Out
-                        8) Add to Inventory
-                        9) Add Shipping Type
-                        10) Promote User
+                        1) Change/ Add Shipping Address
+                        2) Show Inventory
+                        3) Search Inventory
+                        4) Add To Cart
+                        5) Show Cart
+                        6) Remove From Cart
+                        7) Buy/ Add to Sales
+                        8) Log Out
+                        9) Add to Inventory
+                        10) Add Shipping Type
+                        11) Promote User
                         
                         Choice: """);
                             choice2 = Integer.parseInt(myScan.nextLine());
-                            if (choice2 > 0 && choice2 < 11){
+                            if (choice2 > 0 && choice2 < 12){
                                 break;
                             }
 
@@ -802,17 +859,18 @@ public class Database {
                         try{
                             System.out.print("""
                         Options:
-                        1) Show Inventory
-                        2) Search Inventory
-                        3) Add To Cart
-                        4) Show Cart
-                        5) Remove From Cart
-                        6) Buy/ Add to Sales
-                        7) Log Out
+                        1) Change/ Add Shipping Address
+                        2) Show Inventory
+                        3) Search Inventory
+                        4) Add To Cart
+                        5) Show Cart
+                        6) Remove From Cart
+                        7) Buy/ Add to Sales
+                        8) Log Out
                         
                         Choice: """);
                             choice2 = Integer.parseInt(myScan.nextLine());
-                            if (choice2 > 0 && choice2 < 8){
+                            if (choice2 > 0 && choice2 < 9){
                                 break;
                             }
 
@@ -823,10 +881,19 @@ public class Database {
                     }
                 }
                 if(choice2 == 1){
+                    if (!currentUser.getShippingAddress().isEmpty()){
+                        System.out.println("Current Shipping Address: " + currentUser.getShippingAddress());
+                    }
+                    System.out.print("New Shipping Address: ");
+                    String shippingAddress = myScan.nextLine();
+                    currentUser.setShippingAddress(shippingAddress);
+                    addShippingAddress(currentUser);
+                }
+                else if(choice2 == 2){
                     showInventory();
                     System.out.println();
                 }
-                else if(choice2 == 2){
+                else if(choice2 == 3){
                     System.out.print("Item Name: ");
                     String itemName = myScan.nextLine();
                     boolean available = searchInventory(itemName);
@@ -835,14 +902,14 @@ public class Database {
                         System.out.println();
                     }
                 }
-                else if(choice2 == 3){
+                else if(choice2 == 4){
                     System.out.print("Item Name: ");
                     String itemName = myScan.nextLine();
                     System.out.println(itemName);
                     addToCart(stocked, itemName);
                     System.out.println();
                 }
-                else if(choice2 == 4){
+                else if(choice2 == 5){
                     if(stocked.isEmpty()){
                         System.out.println("Cart is empty");
                         System.out.println();
@@ -856,7 +923,7 @@ public class Database {
                         System.out.println();
                     }
                 }
-                else if(choice2 == 5){
+                else if(choice2 == 6){
                     if(stocked.isEmpty()){
                         System.out.println("Cart is empty");
                         System.out.println();
@@ -878,7 +945,7 @@ public class Database {
                         System.out.println();
                     }
                 }
-                else if(choice2 == 6){
+                else if(choice2 == 7){
                     if(stocked.isEmpty()){
                         System.out.println("Cart is empty! Nothing to Buy");
                         System.out.println();
@@ -898,7 +965,7 @@ public class Database {
                         System.out.println();
                     }
                 }
-                else if(choice2 == 7){
+                else if(choice2 == 8){
                     System.out.print("Do you wish to quit (Y/N)? ");
                     char choice3 = myScan.next().toUpperCase().charAt(0);
                     myScan.nextLine();
@@ -908,13 +975,18 @@ public class Database {
                         myScan.nextLine();
                     }
                     if(choice3 == 'Y'){
+                        loggedOut = true;
                         quitApplication = true;
+                        System.out.println(currentUser.getUserName() + " has quit the application.");
+                        System.out.println();
                     }
                     else {
                         loggedOut = true;
+                        System.out.println(currentUser.getUserName() + " has logged out.");
+                        System.out.println();
                     }
                 }
-                else if(choice2 == 8){
+                else if(choice2 == 9){
                     boolean added;
                     System.out.print("Item Name: ");
                     String itemName = myScan.nextLine();
@@ -929,7 +1001,7 @@ public class Database {
                         System.out.println();
                     }
                 }
-                else if(choice2 == 9){
+                else if(choice2 == 10){
                     boolean added;
                     System.out.print("Shipping Name: ");
                     String shippingName = myScan.nextLine();
