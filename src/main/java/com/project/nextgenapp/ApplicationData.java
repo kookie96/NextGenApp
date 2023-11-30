@@ -3,16 +3,17 @@ package com.project.nextgenapp;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ApplicationData {
     @JsonProperty("Users")
-    public ArrayList<User> users;
+    public List<User> users;
     @JsonProperty("Inventory")
-    public ArrayList<Inventory> inventory;
+    public List<Inventory> inventory;
     @JsonProperty("Sales")
-    public ArrayList<Sale> sales;
+    public List<Sale> sales;
     @JsonProperty("ShippingTypes")
-    public ArrayList<ShippingType> shippingTypes;
+    public List<ShippingType> shippingTypes;
 
     public ApplicationData() {
         // Default Constructor

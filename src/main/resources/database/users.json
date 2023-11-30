@@ -1,22 +1,18 @@
-{
-  "Users" : [ {
-    "userID" : 1,
+[
+  {
     "firstName" : "Kayla",
     "userName" : "kbg",
     "password" : "password123",
     "shippingAddress" : "Marietta, GA",
-    "isAdmin" : true,
-    "admin" : true
-  }, {
-    "userID" : 2,
+    "admin" : true,
+    "userID" : 1
+  },
+  {
     "firstName" : "Tyler",
     "userName" : "tg",
     "password" : "password123",
     "shippingAddress" : "Marietta, GA",
-    "isAdmin" : true,
-    "admin" : true
-  } ],
-  "Inventory" : null,
-  "Sales" : null,
-  "ShippingTypes" : null
-}
+    "admin" : true,
+    "userID" : 2
+  }
+]

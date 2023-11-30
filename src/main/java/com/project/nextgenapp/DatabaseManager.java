@@ -2,14 +2,12 @@ package com.project.nextgenapp;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class DatabaseManager {
@@ -20,11 +18,24 @@ public class DatabaseManager {
     // ** Get ApplicationDataContainer to access data from JSON File (Serialization)
     public ApplicationData getDataContainer() throws IOException {
         ObjectMapper om = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        // om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        File jsonFile = new File("src/main/resources/database/projectdatabase.json");
+        ApplicationData appDataContainer = new ApplicationData();
 
-        String jsonString = readJsonFile();
-        ApplicationData appDataContainer = om.readValue(jsonString, ApplicationData.class);
+        try {
+            appDataContainer.users = om.readValue(new File("src/main/resources/database/" +
+                            "users.json"),
+                    om.getTypeFactory().constructCollectionType(List.class, User.class));
+            appDataContainer.inventory = om.readValue(new File("src/main/resources/database/" +
+                            "inventory.json"),
+                    om.getTypeFactory().constructCollectionType(List.class, Inventory.class));
+            appDataContainer.sales = om.readValue(new File("src/main/resources/database/" +
+                            "sales.json"),
+                    om.getTypeFactory().constructCollectionType(List.class, Sale.class));
+            appDataContainer.shippingTypes = om.readValue(new File("src/main/resources/database/" +
+                            "shippingTypes.json"),
+                    om.getTypeFactory().constructCollectionType(List.class, ShippingType.class));
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
 
         return appDataContainer;
     }
@@ -32,25 +43,24 @@ public class DatabaseManager {
     //** Write Java objects to JSON File (Deserialization)
     public void writeJsonFile(ApplicationData appDataContainer) throws IOException {
         ObjectMapper om = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        File jsonFile = new File("src/main/resources/database/projectdatabase.json");
-        om.writeValue(jsonFile, appDataContainer);
+
+        try {
+            om.writeValue(new File("src/main/resources/database/users.json"),
+                    appDataContainer.users);
+            om.writeValue(new File("src/main/resources/database/inventory.json"),
+                    appDataContainer.inventory);
+            om.writeValue(new File("src/main/resources/database/sales.json"),
+                    appDataContainer.sales);
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
     }
 
     // ** Test
     public void test(ApplicationData appDataContainer) throws IOException {
         ObjectMapper om = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+        ObjectWriter ow = om.writerWithDefaultPrettyPrinter();
         File jsonFile = new File("src/main/resources/database/testdata.json");
         om.writeValue(jsonFile, appDataContainer);
-    }
-
-    // ** Read JSON File into string
-    public String readJsonFile() throws FileNotFoundException {
-        File newFile = new File("src/main/resources/database/projectdatabase.json");
-        Scanner reader = new Scanner(newFile);
-        String input = "";
-        while (reader.hasNextLine()) {
-            input += reader.nextLine();
-        }
-        return input;
     }
 }

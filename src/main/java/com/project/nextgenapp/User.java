@@ -1,10 +1,6 @@
 package com.project.nextgenapp;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties (ignoreUnknown = true)
 public class User {
-    @JsonProperty("userID")
     public int userID;
     public String firstName;
     public String userName;
@@ -61,8 +57,20 @@ public class User {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userID=" + userID +
+                ", firstName='" + firstName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", shippingAddress='" + shippingAddress + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }
 

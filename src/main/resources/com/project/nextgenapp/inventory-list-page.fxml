@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="850.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.nextgenapp.InventoryController">
+   <top>
+      <HBox prefHeight="47.0" prefWidth="711.0" style="-fx-background-color: black; -fx-border-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="59.0" prefWidth="170.0" text="NextGen" textFill="#77d453">
+               <font>
+                  <Font name="BM DoHyeon OTF" size="24.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Home" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Shopping Cart" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Logout" />
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tableView" layoutY="37.0" prefHeight="353.0" prefWidth="848.0" style="-fx-background-color: black;">
+              <columns>
+                <TableColumn fx:id="itemPhoto" prefWidth="212.49713897705078" text="Photo" />
+                <TableColumn fx:id="itemName" prefWidth="203.99888610839844" text="Name" />
+                  <TableColumn fx:id="itemDescription" prefWidth="213.50112915039062" text="Description" />
+                  <TableColumn fx:id="itemPrice" prefWidth="218.43121337890625" text="Price" />
+              </columns>
+            </TableView>
+            <Button fx:id="addToCartClick" layoutX="365.0" layoutY="406.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Add To Cart" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

@@ -1,28 +1,14 @@
 package com.project.nextgenapp;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sale {
     public int userID;
     public int inventoryID;
     public int shippingTypeID;
-    public String dateOfSale; // Format: YYYY-MM-DD.
-    public float tax; // tax = 6% of subtotal
+    public String dateOfSale;
+    public float tax;
     public float grandTotal;
 
-    Sale() {
-        // Default constructor
-    }
-
-    Sale(int userID, int inventoryID, int shippingTypeID, String dateOfSale, float tax,
-         float grandTotal) {
-        this.userID = userID;
-        this.inventoryID = inventoryID;
-        this.shippingTypeID = shippingTypeID;
-        this.dateOfSale = dateOfSale;
-        this.tax = tax;
-        this.grandTotal = grandTotal;
+    public Sale() {
     }
 
     public int getUserID() {
@@ -72,6 +58,16 @@ public class Sale {
     public void setGrandTotal(float grandTotal) {
         this.grandTotal = grandTotal;
     }
+
+    @Override
+    public String toString() {
+        return "Sale{" +
+                "userID=" + userID +
+                ", inventoryID=" + inventoryID +
+                ", shippingTypeID=" + shippingTypeID +
+                ", dateOfSale='" + dateOfSale + '\'' +
+                ", tax=" + tax +
+                ", grandTotal=" + grandTotal +
+                '}';
+    }
 }
-
-
