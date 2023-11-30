@@ -4,21 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties (ignoreUnknown = true)
 public class User {
-    private static int uniqueID = 1;
     @JsonProperty("userID")
-    private int userID;
-    private String firstName;
-    private String userName;
-    private String password;
-    private String shippingAddress;
-    private boolean isAdmin = false;
+    public int userID;
+    public String firstName;
+    public String userName;
+    public String password;
+    public String shippingAddress;
+    public boolean isAdmin = false;
 
     public User() {
 
     }
 
-    public User(String firstName, String userName, String password, String shippingAddress) {
-        this.userID = ++uniqueID;
+    public User(int userID, String firstName, String userName, String password,
+                String shippingAddress) {
+        this.userID = userID;
         this.firstName = firstName;
         this.userName = userName;
         this.password = password;

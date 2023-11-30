@@ -49,7 +49,12 @@
   ],
   "Sales": [
     {
-
+      "userID" : 1,
+      "inventoryID": 4,
+      "shippingTypeID": 1,
+      "dateOfSale": "2023-11-29",
+      "tax" : 3.99,
+      "grandTotal": 40.81
     }
   ],
   "ShippingTypes": [

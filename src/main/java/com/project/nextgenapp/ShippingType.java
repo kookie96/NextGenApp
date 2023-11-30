@@ -1,22 +1,25 @@
 package com.project.nextgenapp;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShippingType {
-    private static int uniqueID = 0;
     @JsonProperty("shippingTypeID")
-    private int shippingTypeId;
-    private String name;
-    private float price;
+    public int shippingTypeId;
+    public String name;
+    public float price;
 
     ShippingType() {
         // Default Constructor
     }
 
-    ShippingType(String name, float price) {
+    ShippingType(String name, float price, int shippingTypeId) {
         this.name = name;
         this.price = price;
-        this.shippingTypeId = ++uniqueID;
+        this.shippingTypeId = shippingTypeId;
     }
 
     public int getShippingTypeId() {

@@ -1,12 +1,15 @@
 package com.project.nextgenapp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sale {
-    private int userID;
-    private int inventoryID;
-    private int shippingTypeID;
-    private String dateOfSale; // Format: YYYY-MM-DD.
-    private float tax; // tax = 6% of subtotal
-    private float grandTotal;
+    public int userID;
+    public int inventoryID;
+    public int shippingTypeID;
+    public String dateOfSale; // Format: YYYY-MM-DD.
+    public float tax; // tax = 6% of subtotal
+    public float grandTotal;
 
     Sale() {
         // Default constructor

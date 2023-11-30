@@ -1,32 +1,44 @@
 package com.project.nextgenapp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Inventory {
-    private static int uniqueID = 0;
     @JsonProperty("inventoryID")
-    private int inventoryId;
-    private String name;
-    private String description;
-    private float price;
+    public int inventoryID;
+    public String name;
+    public String description;
+    public float price;
 
     Inventory() {
         // Default constructor
     }
 
-    Inventory(String name, String description, float price) {
+    Inventory(String name, String description, float price, int inventoryID) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.inventoryId = ++uniqueID;
+        this.inventoryID = inventoryID;
     }
 
+    /*
+    public static int getUniqueID() {
+        return uniqueID;
+    }
+
+    public static void setUniqueID(int uniqueID) {
+        Inventory.uniqueID = uniqueID;
+    }
+
+
+     */
     public int getInventoryId() {
-        return inventoryId;
+        return inventoryID;
     }
 
     public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
+        this.inventoryID = inventoryId;
     }
 
     public String getName() {
