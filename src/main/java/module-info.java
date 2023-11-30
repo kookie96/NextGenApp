@@ -8,5 +8,4 @@ module com.project.nextgenapp {
 
     opens com.project.nextgenapp to javafx.fxml;
     exports com.project.nextgenapp;
-
 }

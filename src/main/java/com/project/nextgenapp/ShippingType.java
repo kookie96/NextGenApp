@@ -1,33 +1,19 @@
 package com.project.nextgenapp;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShippingType {
-    @JsonProperty("shippingTypeID")
-    public int shippingTypeId;
+    public int shippingTypeID;
     public String name;
     public float price;
 
-    ShippingType() {
-        // Default Constructor
+    public ShippingType() {
     }
 
-    ShippingType(String name, float price, int shippingTypeId) {
-        this.name = name;
-        this.price = price;
-        this.shippingTypeId = shippingTypeId;
+    public int getShippingTypeID() {
+        return shippingTypeID;
     }
 
-    public int getShippingTypeId() {
-        return shippingTypeId;
-    }
-
-    public void setShippingTypeId(int shippingTypeId) {
-        this.shippingTypeId = shippingTypeId;
+    public void setShippingTypeID(int shippingTypeID) {
+        this.shippingTypeID = shippingTypeID;
     }
 
     public String getName() {
@@ -44,5 +30,14 @@ public class ShippingType {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ShippingType{" +
+                "shippingTypeID=" + shippingTypeID +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

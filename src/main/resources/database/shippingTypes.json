@@ -1,0 +1,17 @@
+[
+  {
+    "shippingTypeID": 1,
+    "name": "Standard Shipping",
+    "price": 0.00
+  },
+  {
+    "shippingTypeID": 2,
+    "name": "3-Day",
+    "price": 12.99
+  },
+  {
+    "shippingTypeID": 3,
+    "name": "Overnight Shipping",
+    "price": 20.99
+  }
+]

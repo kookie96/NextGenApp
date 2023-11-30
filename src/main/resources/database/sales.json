@@ -1,0 +1,10 @@
+[
+  {
+    "userID": 1,
+    "inventoryID": 5,
+    "shippingTypeID" : 1,
+    "dateOfSale": "2023-11-29",
+    "tax": 10.00,
+    "grandTotal" : 59.87
+  }
+]
