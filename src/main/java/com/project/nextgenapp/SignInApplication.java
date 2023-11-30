@@ -1,6 +1,7 @@
 package com.project.nextgenapp;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -49,4 +50,5 @@ public class SignInApplication extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-}
+
+   }

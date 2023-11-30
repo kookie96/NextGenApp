@@ -46,7 +46,7 @@ public class ShoppingCartController {
 
     private void payNow() {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("payment.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingCart.fxml"));
             AnchorPane root = fxmlLoader.load();
             ShoppingCartController shoppingCartController = fxmlLoader.getController();
             shoppingCartController.addToCart();

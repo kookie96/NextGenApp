@@ -20,7 +20,7 @@
         <Label fx:id="payNowLabel" layoutX="250.0" layoutY="50.0" text="Pay Now" />
         <FlowPane fx:id="descriptionFlowPane" layoutX="50.0" layoutY="100.0" prefHeight="200.0" prefWidth="500.0">
             <children>
-                <Label text="Description..." />
+                <Label fx:id="cartLabel" text="Description..." />
             <ImageView fx:id="cartItemsLabel" fitHeight="152.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" />
                 <Label text="Description" />
                 <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Description" />
