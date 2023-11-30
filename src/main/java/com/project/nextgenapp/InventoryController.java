@@ -3,6 +3,7 @@ package com.project.nextgenapp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -40,6 +42,9 @@ public class InventoryController implements Initializable {
 
     private final ObservableList<ShowInventory> inventoryOBList =
             FXCollections.observableArrayList();
+
+    @FXML
+    private Button logoutButton;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -130,5 +135,19 @@ public class InventoryController implements Initializable {
         }
     }
 
+    @FXML
+    protected void logoutClick() throws IOException {
+        // Call getScene() on any node that isn't null. Any node could be chosen
+        // from this controller. Then, typecast window to stage
+        Stage stage = (Stage) addToCartClick.getScene().getWindow();
+
+        // Copy/paste start method in driver and change fxml file
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("SignIn" +
+                ".fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 850, 600);
+        stage.setTitle("NextGen");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

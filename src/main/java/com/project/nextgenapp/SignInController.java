@@ -49,7 +49,7 @@ public class SignInController {
             if (userValidation(userList, username, password)) {
                 goToInventoryPage();
             } else {
-                throw new Exception("Invalid username and password");
+                throw new Exception("Invalid username and password.");
             }
 
 

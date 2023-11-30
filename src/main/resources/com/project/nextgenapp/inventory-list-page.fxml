@@ -20,7 +20,7 @@
             </Label>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Home" />
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Shopping Cart" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Logout" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutClick" prefHeight="55.0" prefWidth="105.0" style="-fx-background-color: #77D453; -fx-border-color: black;" text="Logout" />
          </children>
       </HBox>
    </top>
